@@ -5,7 +5,7 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     tasks = db.relationship('Task', backref='user', lazy=True)
     
-    def to_dict(self):
+    def serialize(self):
         return {
             'id': self.id,
             'username': self.username,
